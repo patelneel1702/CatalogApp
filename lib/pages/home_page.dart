@@ -1,3 +1,5 @@
+import 'package:demo4/models/catalog_model.dart';
+import 'package:demo4/widget/catalog_item.dart';
 import 'package:demo4/widget/drawer.dart';
 import 'package:flutter/material.dart';
 
@@ -22,15 +24,13 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      body: Container(
-        width: 1000.0,
-        color: Colors.white,
-        padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 30.0),
-        child: const Image(
-          image: AssetImage("assets/images/img5.jpg"),
-          height: 200.0,
-        ),
-      ),
+      body: ListView.builder(
+          itemCount: Catalogmodel.Items.length,
+          itemBuilder: (context, index) {
+            return ItemWidget(
+              item: Catalogmodel.Items[0],
+            );
+          }),
       drawer: const MyDrawer(),
     );
   }
